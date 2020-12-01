@@ -60,11 +60,11 @@ _start:
 	//GPIOCOUTENB |= (1<<8)|(1<<7);
     LDR r1,=GPIOCALTFN0
     LDR r0,[r1]          //取寄存器值
-    LDR r2,=~(3<<16);
-    LDR r3,=~(3<<14);
-    AND r2,r2,r3;
-    // LDR r3,~r2;          //r3= ~((3<<16)|(3<<14));
-    AND r0,r0,r3;        //r0=r0&r3
+    LDR r2,=(3<<16);
+    LDR r3,=(3<<14);
+    ORR r2,r2,r3;
+    NOT r2;          //r3= ~((3<<16)|(3<<14));
+    AND r0,r0,r2;        //r0=r0&r3
     STR r0,[r1]
 
     LDR r1,=GPIOCALTFN0
