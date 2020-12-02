@@ -96,24 +96,25 @@ loop:
 	AND r0,r0,r2;	    //r0=r0&r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值
 
-    LDR r1,=GPIOEOUT
+    LDR r1,=GPIOCOUT
 	LDR r0,[r1]	        //取寄存器值
 	LDR r2,=(1<<17);    //r2=(1<<17)
 	ORR r0,r0,r2;	    //r0=r0|r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值	
 
-    LDR r1,=GPIOEOUT
+    LDR r1,=GPIOCOUT
     LDR r0,[r1]	        //取寄存器值
 	LDR r2,=(1<<8);     //r2=(1<<8)
 	ORR r0,r0,r2;	    //r0=r0|r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值	
 
-    LDR r1,=GPIOEOUT
+    LDR r1,=GPIOCOUT
     LDR r0,[r1]	        //取寄存器值
 	LDR r2,=(1<<7);     //r2=(1<<7)
 	ORR r0,r0,r2;	    //r0=r0|r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值	
 
+    bl  delay		//delay
     bl  delay		//delay
 
     //点亮D8,其他灯熄灭
@@ -127,25 +128,26 @@ loop:
 	ORR r0,r0,r2;	    //r0=r0&r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值
 
-    LDR r1,=GPIOEOUT
+    LDR r1,=GPIOCOUT
 	LDR r0,[r1]	        //取寄存器值
 	LDR r2,=~(1<<17);    //r2=~(1<<17)
 	AND r0,r0,r2;	    //r0=r0&r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值	
 
-    LDR r1,=GPIOEOUT
+    LDR r1,=GPIOCOUT
     LDR r0,[r1]	        //取寄存器值
 	LDR r2,=(1<<8);     //r2=(1<<8)
 	ORR r0,r0,r2;	    //r0=r0|r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值	
 
-    LDR r1,=GPIOEOUT
+    LDR r1,=GPIOCOUT
     LDR r0,[r1]	        //取寄存器值
 	LDR r2,=(1<<7);     //r2=(1<<7)
 	ORR r0,r0,r2;	    //r0=r0|r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值	
 
 
+    bl  delay		//delay
     bl  delay		//delay
 
     //点亮D9,其他灯熄灭
@@ -159,24 +161,25 @@ loop:
 	ORR r0,r0,r2;	    //r0=r0|r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值
 
- 	LDR r1,=GPIOEOUT
+ 	LDR r1,=GPIOCOUT
 	LDR r0,[r1]	        //取寄存器值
 	LDR r2,=(1<<17);    //r2=(1<<17)
 	ORR r0,r0,r2;	    //r0=r0|r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值	
 
-	LDR r1,=GPIOEOUT
+	LDR r1,=GPIOCOUT
     LDR r0,[r1]	        //取寄存器值
 	LDR r2,=~(1<<8);     //r2=~(1<<8)
 	AND r0,r0,r2;	    //r0=r0&r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值
 
-	LDR r1,=GPIOEOUT
+	LDR r1,=GPIOCOUT
     LDR r0,[r1]	        //取寄存器值
 	LDR r2,=(1<<7);     //r2=(1<<7)
 	ORR r0,r0,r2;	    //r0=r0|r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值	
 
+    bl  delay		//delay
     bl  delay		//delay
 
 	//点亮D10,其他灯熄灭
@@ -190,25 +193,26 @@ loop:
 	ORR r0,r0,r2;	    //r0=r0|r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值
 
- 	LDR r1,=GPIOEOUT
+ 	LDR r1,=GPIOCOUT
 	LDR r0,[r1]	        //取寄存器值
 	LDR r2,=(1<<17);    //r2=(1<<17)
 	ORR r0,r0,r2;	    //r0=r0|r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值
 
-	LDR r1,=GPIOEOUT
+	LDR r1,=GPIOCOUT
     LDR r0,[r1]	        //取寄存器值
 	LDR r2,=(1<<8);     //r2=(1<<8)
 	ORR r0,r0,r2;	    //r0=r0|r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值	
 
-	LDR r1,=GPIOEOUT
+	LDR r1,=GPIOCOUT
     LDR r0,[r1]	        //取寄存器值
 	LDR r2,=~(1<<7);     //r2=~(1<<7)
 	AND r0,r0,r2;	    //r0=r0&r2 
 	STR r0,[r1]		    //修改GPIOEOUT的值
 
 
+    bl  delay		//delay
     bl  delay		//delay
 
     b loop
@@ -217,7 +221,7 @@ loop:
 delay:
 	push {r0,lr}
     ldr r0,=0x2FF0000 
-	mov r0,#0x20000000
+	//mov r0,#0x20000000
 	
 delay_loop:
 	sub r0,r0,#1	//r0=r0-1
