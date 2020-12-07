@@ -217,7 +217,7 @@ loop:
 delay:
 	push {r0,lr}
     ldr r0,=0x2FF0000 
-	mov r0,#0x20000000
+	//mov r0,#0x2FF0000
 	
 delay_loop:
 	sub r0,r0,#1	//r0=r0-1
